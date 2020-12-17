@@ -7,7 +7,9 @@ meta:
   description: >
     Accepts counts assay. Returns normalized log transformed assay and plot of
     up to 96 samples. The normalization methods are described in Zhu, et al.
-    2017.
+    2017. 
+
+    The field currently lacks agreement as to which normalization method is the best. We used quantile normalization as it had good reputations in bulk gene expression assays (arrays and RNA-Seq). For certain experiments, it makes sense to apply quantile normalization especially if experiments are run in exactly the same manner. It will remove the deviations due to potential biasing during the experimental setup procedures (perhaps reagents were not mixed correctly, certain data-taking procedures had variation, etc.). It may be not ideal to apply to different biological samples.
 endpoints:
   backend:
     cmd: Rscript normalize_xzhu.R
